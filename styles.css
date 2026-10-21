@@ -95,12 +95,13 @@ section { padding: 88px 0; }
 /* Simulador */
 .simulador-sec { background: var(--branco); }
 .sim { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 26px; overflow: hidden; box-shadow: var(--sombra); border: 1px solid var(--prata-claro); }
+.sim > * { min-width: 0; }
 .sim-entrada { padding: 40px; background: var(--fundo); }
 .sim-label { display: block; font-weight: 600; color: var(--marinho); margin-bottom: 12px; }
 .sim-campo { display: flex; align-items: center; gap: 10px; background: var(--branco); border: 2px solid var(--prata); border-radius: 14px; padding: 6px 18px; transition: border-color .2s; }
 .sim-campo:focus-within { border-color: var(--azul); }
 .sim-campo span { font-family: Montserrat, sans-serif; font-weight: 700; color: var(--texto-suave); font-size: 1.4rem; }
-.sim-campo input { border: 0; outline: 0; background: transparent; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 2rem; color: var(--marinho); width: 100%; padding: 6px 0; }
+.sim-campo input { border: 0; outline: 0; background: transparent; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 2rem; color: var(--marinho); width: 100%; min-width: 0; padding: 6px 0; }
 input[type=range] { width: 100%; margin: 26px 0 6px; accent-color: var(--azul); height: 6px; }
 .sim-marcas { display: flex; justify-content: space-between; font-size: .8rem; color: var(--texto-suave); }
 .sim-aviso { margin: 22px 0 0; font-size: .9rem; color: var(--texto-suave); background: var(--azul-claro); border-left: 3px solid var(--azul); padding: 12px 14px; border-radius: 8px; }
@@ -190,6 +191,8 @@ details p { padding: 0 24px 20px; margin: 0; color: var(--texto-suave); }
   .abertura-grid, .regras-grid { grid-template-columns: 1fr; gap: 40px; }
   .passos, .seg-grid { grid-template-columns: 1fr 1fr; }
   .menu { display: none; }
+  .sim { grid-template-columns: 1fr; }
+  .sim.modo-gerente .sim-gerente { grid-column: 1; }
 }
 @media (max-width: 720px) {
   section { padding: 64px 0; }
@@ -200,6 +203,8 @@ details p { padding: 0 24px 20px; margin: 0; color: var(--texto-suave); }
   .passos, .seg-grid, .cobre-grid, .regras, .rodape-grid { grid-template-columns: 1fr; }
   .balanca-valor { font-size: 2.1rem; }
   .sim-com { font-size: 2.3rem; }
+  .sim-comparativo { grid-template-columns: 1fr; gap: 14px; }
+  .sim-comparativo > div { min-width: 0; }
   .final { padding: 48px 22px; }
   .marca-nome { font-size: .9rem; }
   .topo .btn-pequeno { padding: .55em 1em; font-size: .82rem; }
@@ -208,7 +213,8 @@ details p { padding: 0 24px 20px; margin: 0; color: var(--texto-suave); }
 
 /* Contratação (demonstração) */
 .fluxo { position: fixed; inset: 0; z-index: 50; background: rgba(7, 21, 48, .6); backdrop-filter: blur(4px); display: grid; place-items: start center; overflow-y: auto; padding: max(24px, env(safe-area-inset-top, 0px)) 16px 24px; }
-.fluxo-caixa { width: min(680px, 100%); background: var(--branco); border-radius: 24px; padding: 32px; box-shadow: var(--sombra); }
+.fluxo { grid-template-columns: minmax(0, 1fr); }
+.fluxo-caixa { justify-self: center; min-width: 0; width: min(680px, 100%); background: var(--branco); border-radius: 24px; padding: 32px; box-shadow: var(--sombra); }
 .fluxo-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .fluxo-topo h2 { font-size: 1.6rem; margin: 0; }
 .fluxo-demo { display: inline-block; font-size: .75rem; font-weight: 600; color: #8A5A00; background: #FFF4D6; border-radius: 999px; padding: 3px 12px; margin-bottom: 10px; }

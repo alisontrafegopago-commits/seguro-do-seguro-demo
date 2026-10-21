@@ -104,6 +104,8 @@
   .p-lateral { scrollbar-width: none; }
   .p-lateral::-webkit-scrollbar { display: none; }
   .p-ola { font-size: 1.6rem; }
+  .p-tabela th, .p-tabela td { padding: 10px 8px; font-size: .85rem; }
+  .p-conteudo > section { min-width: 0; }
 }
 @media (max-width: 480px) {
   .topo .marca-nome { display: none; }
