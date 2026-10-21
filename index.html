@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seguro do Seguro | Proteção para a sua franquia</title>
+<meta name="description" content="Bateu o carro? A franquia é com a gente. Mensalidade a partir de R$ 39,90 e a Seguro do Seguro paga a franquia do seu seguro direto na oficina.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1F45">
+<link rel="icon" href="assets/simbolo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="portal.css">
+</head>
+<body>
+<div style="background:#FFF4D6;color:#6B4600;text-align:center;font-size:.85rem;font-weight:600;padding:8px 16px">Versão de demonstração para aprovação. Nada é salvo e nenhum pagamento é real.</div>
+
+<header class="topo">
+  <div class="wrap topo-inner">
+    <a href="#" class="marca" aria-label="Seguro do Seguro, início">
+      <img src="assets/simbolo.jpg" alt="" width="44" height="44">
+      <span class="marca-nome"><b>SEGURO</b> DO <b>SEGURO</b></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#regras">Regras claras</a>
+      <a href="#seguranca">Seus dados</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div class="topo-acoes">
+      <button type="button" class="link-portal" id="abrirPortalDemo">Área do cliente</button>
+      <a href="#simulador" class="btn btn-pequeno">Simular agora</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ABERTURA -->
+<section class="abertura">
+  <div class="wrap abertura-grid">
+    <div>
+      <p class="selo">Proteção para a sua franquia</p>
+      <h1>Bateu o carro?<br><span>A franquia é com a gente.</span></h1>
+      <p class="abertura-texto">Seu seguro cobre o conserto, mas cobra a franquia de você. Com a Seguro do Seguro, você paga uma mensalidade pequena e, quando a seguradora aprova o sinistro, nós pagamos a franquia direto na oficina.</p>
+      <div class="abertura-acoes">
+        <a href="#simulador" class="btn">Ver quanto eu pago</a>
+        <a href="#como-funciona" class="btn btn-contorno">Entender como funciona</a>
+      </div>
+      <ul class="abertura-pontos">
+        <li>A partir de <b>R$ 39,90/mês</b></li>
+        <li>Contratação 100% online</li>
+        <li>Atende todo o Brasil</li>
+      </ul>
+    </div>
+
+    <div class="balanca" aria-hidden="true">
+      <div class="balanca-lado sem">
+        <span class="balanca-rotulo">Sem proteção</span>
+        <span class="balanca-valor">R$ 5.000</span>
+        <span class="balanca-nota">saem do seu bolso de uma vez, no dia da batida</span>
+      </div>
+      <div class="balanca-vs">ou</div>
+      <div class="balanca-lado com">
+        <span class="balanca-rotulo">Com a Seguro do Seguro</span>
+        <span class="balanca-valor">R$ 49,90<small>/mês</small></span>
+        <span class="balanca-nota">e a franquia de R$ 5.000 fica por nossa conta</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULADOR -->
+<section id="simulador" class="simulador-sec">
+  <div class="wrap">
+    <div class="titulo-sec">
+      <p class="sobretitulo">Simulador</p>
+      <h2>Quanto custa proteger a sua franquia?</h2>
+      <p>Arraste ou digite o valor da franquia que está na sua apólice. Você encontra esse número no documento do seguro ou no aplicativo da seguradora.</p>
+    </div>
+
+    <div class="sim">
+      <div class="sim-entrada">
+        <label for="valorFranquia" class="sim-label">Valor da franquia do seu seguro</label>
+        <div class="sim-campo">
+          <span>R$</span>
+          <input id="valorFranquia" type="text" inputmode="numeric" autocomplete="off" value="5.000" aria-describedby="simAviso">
+        </div>
+        <input id="reguaFranquia" type="range" min="1000" max="15000" step="250" value="5000" aria-label="Régua do valor da franquia">
+        <div class="sim-marcas"><span>R$ 1 mil</span><span>R$ 8 mil</span><span>R$ 15 mil</span></div>
+        <p id="simAviso" class="sim-aviso">Use o valor exato da sua apólice. É esse valor que fica coberto, conforme o regulamento.</p>
+      </div>
+
+      <div class="sim-resultado" id="simResultado" aria-live="polite">
+        <div class="sim-comparativo">
+          <div>
+            <span class="sim-rot">Sem proteção você paga</span>
+            <span class="sim-sem" id="simSem">R$ 5.000,00</span>
+            <span class="sim-rot-mini">de uma vez</span>
+          </div>
+          <div>
+            <span class="sim-rot">Com a gente você paga</span>
+            <span class="sim-com" id="simCom">R$ 49,90</span>
+            <span class="sim-rot-mini">por mês</span>
+          </div>
+        </div>
+        <p class="sim-frase" id="simFrase">Com um ano de mensalidades você investe R$ 598,80 para não tirar R$ 5.000,00 do bolso.</p>
+        <a href="#" class="btn btn-largo" id="simBotao" data-acao="contratar">Quero proteger minha franquia</a>
+        <a href="#" class="sim-whats" data-whats="Olá! Fiz uma simulação no site e quero tirar uma dúvida.">Prefiro tirar uma dúvida pelo WhatsApp</a>
+      </div>
+
+      <div class="sim-gerente" id="simGerente" hidden>
+        <div>
+          <h3>Sua franquia merece um atendimento especial</h3>
+          <p>Para franquias acima de R$ 10.000, quem atende você é o nosso gerente, pessoalmente. Ele monta uma condição sob medida para o seu carro.</p>
+          <a href="#" class="btn" id="gerenteBotao">Falar com o gerente</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="passos-sec">
+  <div class="wrap">
+    <div class="titulo-sec">
+      <p class="sobretitulo">Como funciona</p>
+      <h2>Simples do começo ao fim</h2>
+    </div>
+    <ol class="passos">
+      <li>
+        <span class="passo-num">1</span>
+        <h3>Simule e contrate</h3>
+        <p>Informe o valor da sua franquia, veja a mensalidade e conclua tudo pelo celular, sem vistoria.</p>
+      </li>
+      <li>
+        <span class="passo-num">2</span>
+        <h3>Sua proteção começa</h3>
+        <p>Depois de 90 dias de carência, a sua franquia já está protegida. Você recebe a carteirinha digital.</p>
+      </li>
+      <li>
+        <span class="passo-num">3</span>
+        <h3>Bateu? Avise a gente</h3>
+        <p>Abra o sinistro na sua seguradora normalmente e depois nos avise pelo site ou pelo WhatsApp.</p>
+      </li>
+      <li>
+        <span class="passo-num">4</span>
+        <h3>Nós pagamos a franquia</h3>
+        <p>Aprovado o sinistro, pagamos a franquia direto à oficina ou à seguradora. Você não tira nada do bolso.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- REGRAS -->
+<section id="regras" class="regras-sec">
+  <div class="wrap regras-grid">
+    <div>
+      <p class="sobretitulo">Regras claras</p>
+      <h2>Tudo combinado antes, nada escondido depois</h2>
+      <p>Proteção boa é aquela que você entende. Aqui estão as regras principais, sem letra miúda. A versão completa fica no regulamento.</p>
+    </div>
+    <dl class="regras">
+      <div><dt>Mensalidade</dt><dd>1% do valor da franquia, com mínimo de R$ 39,90</dd></div>
+      <div><dt>Carência</dt><dd>90 dias a partir do primeiro pagamento</dd></div>
+      <div><dt>Uso</dt><dd>1 franquia paga a cada 12 meses de contrato</dd></div>
+      <div><dt>Limite</dt><dd>Franquias de até R$ 10.000. Acima disso, fale com o gerente</dd></div>
+      <div><dt>Pagamento</dt><dd>Direto à oficina ou à seguradora, após o sinistro aprovado</dd></div>
+      <div><dt>Onde vale</dt><dd>Todo o Brasil, com o seguro de qualquer seguradora</dd></div>
+      <div><dt>Desistência</dt><dd>7 dias para desistir com o dinheiro de volta, como manda o Código de Defesa do Consumidor</dd></div>
+      <div><dt>Cancelamento</dt><dd>Depois dos 7 dias, a qualquer momento. Antes de 12 meses há multa de 3 mensalidades</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- COBRE / NÃO COBRE -->
+<section class="cobre-sec">
+  <div class="wrap cobre-grid">
+    <div class="cobre sim-cobre">
+      <h3>O que está protegido</h3>
+      <ul>
+        <li>Franquia de colisão aprovada pela sua seguradora</li>
+        <li>Batidas, raspões e danos parciais com franquia cobrada</li>
+        <li>Carros com seguro ativo em qualquer seguradora do Brasil</li>
+      </ul>
+    </div>
+    <div class="cobre nao-cobre">
+      <h3>O que não está protegido</h3>
+      <ul>
+        <li>Perda total, roubo ou furto (nesses casos não há franquia)</li>
+        <li>Sinistro negado pela seguradora</li>
+        <li>Batidas durante a carência ou com mensalidade em atraso</li>
+        <li>Reembolso de franquia que você já pagou</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURANÇA -->
+<section id="seguranca" class="seguranca-sec">
+  <div class="wrap">
+    <div class="titulo-sec claro">
+      <p class="sobretitulo">Seus dados</p>
+      <h2>Cuidamos dos seus dados como cuidamos da sua franquia</h2>
+    </div>
+    <div class="seg-grid">
+      <div><h3>Dados criptografados</h3><p>Seu CPF, telefone e documentos ficam criptografados no nosso banco de dados, não só durante o envio.</p></div>
+      <div><h3>Contrato verificável</h3><p>Cada contrato tem código de autenticidade e QR code. Qualquer pessoa pode conferir se o documento é verdadeiro.</p></div>
+      <div><h3>Acesso protegido</h3><p>Nossa equipe só entra no sistema com verificação em duas etapas, e tudo o que ela faz fica registrado.</p></div>
+      <div><h3>Você no controle (LGPD)</h3><p>Pelo seu painel você baixa ou pede a exclusão dos seus dados quando quiser.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section id="duvidas" class="duvidas-sec">
+  <div class="wrap duvidas-wrap">
+    <div class="titulo-sec">
+      <p class="sobretitulo">Dúvidas</p>
+      <h2>Perguntas que todo mundo faz</h2>
+    </div>
+    <details>
+      <summary>A Seguro do Seguro é uma seguradora?</summary>
+      <p>Não. Nós não vendemos seguro. Você continua com o seguro do seu carro na seguradora que escolheu. Nós protegemos só a franquia desse seguro.</p>
+    </details>
+    <details>
+      <summary>Preciso trocar de seguradora?</summary>
+      <p>Não. Funciona com o seguro que você já tem, em qualquer seguradora.</p>
+    </details>
+    <details>
+      <summary>Precisa de vistoria?</summary>
+      <p>Não. Você contrata pelo celular informando os dados do carro e da apólice.</p>
+    </details>
+    <details>
+      <summary>Quando posso usar?</summary>
+      <p>Depois de 90 dias de carência, contados a partir do primeiro pagamento confirmado.</p>
+    </details>
+    <details>
+      <summary>E se a minha franquia for maior que R$ 10.000?</summary>
+      <p>Fale com o nosso gerente. Ele avalia o seu caso pessoalmente e monta uma condição especial.</p>
+    </details>
+    <details>
+      <summary>Vocês me devolvem o dinheiro da franquia?</summary>
+      <p>Nós pagamos direto à oficina ou à seguradora. Por segurança, não fazemos reembolso de franquia já paga pelo cliente.</p>
+    </details>
+    <details>
+      <summary>Posso cancelar?</summary>
+      <p>Pode, a qualquer momento. Se cancelar antes de completar 12 meses, há multa de 3 mensalidades.</p>
+    </details>
+  </div>
+</section>
+
+<!-- INDIQUE E GANHE -->
+<section class="indique-sec">
+  <div class="wrap indique">
+    <div>
+      <p class="sobretitulo">Indique e ganhe</p>
+      <h2>Indique amigos e fique meses sem pagar</h2>
+      <p>Cada amigo que contratar com o seu código vale <b>1 mensalidade grátis</b> para você. O seu amigo ganha <b>50% de desconto</b> na primeira mensalidade. Indicou 12 amigos? Você fica o ano inteiro sem pagar.</p>
+    </div>
+    <ol class="indique-passos">
+      <li><b>Pegue o seu código</b> no portal do cliente</li>
+      <li><b>Mande para os amigos</b> pelo WhatsApp</li>
+      <li><b>Ganhe 1 mês grátis</b> quando o amigo pagar as 2 primeiras mensalidades</li>
+    </ol>
+  </div>
+</section>
+
+<!-- CHAMADA FINAL -->
+<section class="final-sec">
+  <div class="wrap final">
+    <h2>A próxima batida não precisa custar uma franquia.</h2>
+    <p>Simule agora e veja quanto custa ficar tranquilo.</p>
+    <a href="#simulador" class="btn btn-claro">Simular minha franquia</a>
+  </div>
+</section>
+
+</main>
+
+<!-- CONTRATAÇÃO (DEMONSTRAÇÃO) -->
+<div class="fluxo" id="fluxo" role="dialog" aria-modal="true" aria-labelledby="fluxoTitulo" hidden>
+  <div class="fluxo-caixa">
+    <div class="fluxo-topo">
+      <div>
+        <p class="fluxo-demo">Demonstração: nada é salvo e nenhum pagamento é real</p>
+        <h2 id="fluxoTitulo">Proteger minha franquia</h2>
+      </div>
+      <button type="button" class="fluxo-fechar" id="fluxoFechar" aria-label="Fechar">✕</button>
+    </div>
+
+    <ol class="fluxo-etapas" aria-label="Etapas">
+      <li data-etapa="1">Seus dados</li>
+      <li data-etapa="2">Seu carro</li>
+      <li data-etapa="3">Resumo</li>
+      <li data-etapa="4">Pagamento</li>
+      <li data-etapa="5">Pronto</li>
+    </ol>
+
+    <form id="fluxoForm" novalidate>
+      <fieldset class="etapa" data-etapa="1">
+        <legend>Quem vai ser protegido?</legend>
+        <div class="campos">
+          <label class="campo campo-cheio">Nome completo<input id="fNome" name="nome" autocomplete="name" required placeholder="Como está no documento"></label>
+          <label class="campo">CPF<input id="fCpf" name="cpf" inputmode="numeric" required placeholder="000.000.000-00" maxlength="14"></label>
+          <label class="campo">Celular com WhatsApp<input id="fCel" name="celular" inputmode="tel" required placeholder="(00) 00000-0000" maxlength="15"></label>
+          <label class="campo campo-cheio">E-mail<input id="fEmail" name="email" type="email" autocomplete="email" required placeholder="voce@email.com"></label>
+          <label class="campo campo-cheio">Código de indicação (opcional)<input id="fIndicacao" name="indicacao" placeholder="Ex.: SDS-ANA-4821" autocomplete="off"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="etapa" data-etapa="2" hidden>
+        <legend>Seu carro e o seu seguro</legend>
+        <div class="campos">
+          <label class="campo">Placa<input id="fPlaca" name="placa" required placeholder="ABC1D23" maxlength="7"></label>
+          <label class="campo">Ano do carro<input id="fAno" name="ano" inputmode="numeric" required placeholder="2022" maxlength="4"></label>
+          <label class="campo campo-cheio">Marca e modelo<input id="fModelo" name="modelo" required placeholder="Ex.: Fiat Argo 1.0"></label>
+          <label class="campo">Seguradora
+            <select id="fSeguradora" name="seguradora" required>
+              <option value="">Escolha</option>
+              <option>Porto Seguro</option><option>Azul Seguros</option><option>Itaú Seguros</option>
+              <option>Bradesco Seguros</option><option>Allianz</option><option>HDI</option>
+              <option>Tokio Marine</option><option>Mapfre</option><option>Liberty / Yelum</option>
+              <option>Suhai</option><option>Youse</option><option>Outra</option>
+            </select>
+          </label>
+          <label class="campo">Valor da franquia (R$)<input id="fFranquia" name="franquia" inputmode="numeric" required></label>
+        </div>
+        <p class="fluxo-dica" id="fluxoGerente" hidden>Franquias acima de R$ 10.000 são atendidas pelo nosso gerente. Na versão final, este passo leva você direto para ele.</p>
+      </fieldset>
+
+      <fieldset class="etapa" data-etapa="3" hidden>
+        <legend>Confira antes de continuar</legend>
+        <dl class="resumo" id="resumo"></dl>
+        <div class="aceites">
+          <label><input type="checkbox" id="aRegulamento" required> Li e aceito o regulamento da Seguro do Seguro.</label>
+          <label><input type="checkbox" id="aCarencia" required> Entendo que a proteção começa após 90 dias de carência e vale para 1 franquia a cada 12 meses.</label>
+          <label><input type="checkbox" id="aNaoSeguro" required> Entendo que a Seguro do Seguro não é seguradora e protege apenas a franquia do meu seguro.</label>
+        </div>
+        <p class="fluxo-dica">Você tem 7 dias para desistir com o dinheiro de volta, como garante o Código de Defesa do Consumidor.</p>
+      </fieldset>
+
+      <fieldset class="etapa" data-etapa="4" hidden>
+        <legend>Como você prefere pagar?</legend>
+        <div class="pagamentos" role="radiogroup">
+          <label class="pag"><input type="radio" name="pag" value="Pix" checked><span><b>Pix</b> Aprovação na hora</span></label>
+          <label class="pag"><input type="radio" name="pag" value="Cartão de crédito"><span><b>Cartão</b> Cobrança todo mês no cartão</span></label>
+          <label class="pag"><input type="radio" name="pag" value="Boleto"><span><b>Boleto</b> Até 2 dias úteis para compensar</span></label>
+        </div>
+        <div class="pag-demo">
+          <p><b>Primeira mensalidade: <span id="pagValor"></span></b></p>
+          <p>Na versão final, aqui aparece o QR code do Pix ou a tela segura do cartão, em nome da empresa. Nesta demonstração nenhuma cobrança é gerada.</p>
+        </div>
+      </fieldset>
+
+      <section class="etapa etapa-final" data-etapa="5" hidden>
+        <p class="sucesso-titulo">Pagamento confirmado. Sua franquia está a caminho de ficar protegida.</p>
+        <div class="carteirinha" id="carteirinha" aria-label="Carteirinha digital">
+          <div class="cart-topo">
+            <img src="assets/simbolo.jpg" alt="" width="40" height="40">
+            <span class="marca-nome"><b>SEGURO</b> DO <b>SEGURO</b></span>
+            <span class="cart-demo">DEMO</span>
+          </div>
+          <p class="cart-nome" id="cNome"></p>
+          <div class="cart-dados">
+            <div><span>Placa</span><b id="cPlaca"></b></div>
+            <div><span>Franquia protegida</span><b id="cFranquia"></b></div>
+            <div><span>Mensalidade</span><b id="cMensal"></b></div>
+            <div><span>Protegido a partir de</span><b id="cInicio"></b></div>
+          </div>
+          <p class="cart-codigo">Código de verificação <b id="cCodigo"></b></p>
+        </div>
+        <p class="fluxo-dica">Você recebe a carteirinha e o contrato por e-mail e WhatsApp. Tudo também fica no seu portal exclusivo, que abre a seguir.</p>
+      </section>
+
+      <p class="fluxo-erro" id="fluxoErro" role="alert"></p>
+
+      <div class="fluxo-acoes">
+        <button type="button" class="btn btn-contorno" id="fluxoVoltar">Voltar</button>
+        <button type="submit" class="btn" id="fluxoAvancar">Continuar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- PORTAL DO CLIENTE (DEMONSTRAÇÃO) -->
+<div class="portal" id="portal" hidden>
+  <aside class="p-lateral">
+    <div class="p-marca">
+      <img src="assets/simbolo.jpg" alt="" width="36" height="36">
+      <span class="marca-nome"><b>SEGURO</b> DO <b>SEGURO</b></span>
+    </div>
+    <nav class="p-menu" aria-label="Portal do cliente">
+      <button type="button" data-aba="inicio" class="ativo">Início</button>
+      <button type="button" data-aba="carteirinha">Carteirinha</button>
+      <button type="button" data-aba="acionar">Acionar franquia</button>
+      <button type="button" data-aba="pagamentos">Pagamentos</button>
+      <button type="button" data-aba="indique">Indique e ganhe</button>
+      <button type="button" data-aba="documentos">Documentos</button>
+      <button type="button" data-aba="dados">Meus dados</button>
+    </nav>
+    <button type="button" class="p-sair" id="portalSair">Sair do portal</button>
+  </aside>
+
+  <main class="p-conteudo">
+    <div class="p-demo">
+      <span>Demonstração do portal.</span>
+      <label><input type="checkbox" id="pularCarencia"> Ver como cliente que já passou da carência</label>
+    </div>
+
+    <!-- Início -->
+    <section class="p-aba" data-aba="inicio">
+      <h1 class="p-ola">Olá, <span id="pPrimeiroNome"></span></h1>
+      <div class="p-status" id="pStatus">
+        <div>
+          <p class="p-status-rot" id="pStatusRot"></p>
+          <p class="p-status-txt" id="pStatusTxt"></p>
+        </div>
+        <div class="p-barra"><span id="pBarra"></span></div>
+        <p class="p-status-nota" id="pStatusNota"></p>
+      </div>
+      <div class="p-cards">
+        <div class="p-card"><span>Franquia protegida</span><b id="pFranquia"></b></div>
+        <div class="p-card"><span>Mensalidade</span><b id="pMensal"></b></div>
+        <div class="p-card"><span>Próximo vencimento</span><b id="pVence"></b></div>
+        <div class="p-card"><span>Indicações</span><b id="pIndicCont">0 amigos</b></div>
+      </div>
+      <div class="p-alerta">
+        <b>Fique em dia para ficar protegido.</b> Um dia de atraso já suspende a proteção. Vamos te lembrar pelo WhatsApp 3 dias antes de cada vencimento.
+      </div>
+    </section>
+
+    <!-- Carteirinha -->
+    <section class="p-aba" data-aba="carteirinha" hidden>
+      <h2>Sua carteirinha</h2>
+      <div class="carteirinha" id="pCarteirinha"></div>
+      <p class="p-nota">Mostre esta carteirinha na oficina. O código de verificação confirma que a proteção é verdadeira.</p>
+    </section>
+
+    <!-- Acionar -->
+    <section class="p-aba" data-aba="acionar" hidden>
+      <h2>Acionar minha franquia</h2>
+      <div id="acionarBloqueado" class="p-alerta">
+        <b>Sua proteção começa em <span id="acionarData"></span>.</b> Durante a carência ainda não é possível acionar. Para ver como funciona, marque no topo "Ver como cliente que já passou da carência".
+      </div>
+      <form id="acionarForm" class="p-form" hidden novalidate>
+        <p class="p-nota">Primeiro abra o sinistro na sua seguradora. Depois preencha aqui que a gente cuida da franquia.</p>
+        <div class="campos">
+          <label class="campo">Data da batida<input type="date" id="aData" required></label>
+          <label class="campo">Número do sinistro na seguradora<input id="aSinistro" required placeholder="Ex.: 531.2026.00123"></label>
+          <label class="campo campo-cheio">Oficina do conserto<input id="aOficina" required placeholder="Nome e cidade da oficina"></label>
+          <label class="campo campo-cheio">O que aconteceu<textarea id="aRelato" rows="3" required placeholder="Conte em poucas palavras"></textarea></label>
+          <label class="campo campo-cheio">Fotos do carro e orçamento da oficina<input type="file" id="aFotos" accept="image/*,application/pdf" multiple></label>
+        </div>
+        <p class="fluxo-erro" id="acionarErro" role="alert"></p>
+        <button type="submit" class="btn">Enviar acionamento</button>
+      </form>
+      <div id="acionarAcomp" hidden>
+        <p class="p-nota">Acionamento <b id="acNum"></b>. Acompanhe cada etapa por aqui. Avisamos também pelo WhatsApp.</p>
+        <ol class="linha-tempo" id="linhaTempo">
+          <li>Pedido recebido</li>
+          <li>Documentos em análise</li>
+          <li>Sinistro aprovado pela seguradora</li>
+          <li>Franquia paga à oficina</li>
+        </ol>
+        <button type="button" class="btn btn-contorno" id="avancarStatus">Simular próxima etapa</button>
+      </div>
+    </section>
+
+    <!-- Pagamentos -->
+    <section class="p-aba" data-aba="pagamentos" hidden>
+      <h2>Pagamentos</h2>
+      <div class="p-proxima">
+        <div><span>Próxima mensalidade</span><b id="pgValor"></b><small id="pgVence"></small></div>
+        <button type="button" class="btn" id="copiarPix">Copiar código Pix</button>
+      </div>
+      <p class="p-nota" id="pixMsg" role="status"></p>
+      <table class="p-tabela">
+        <thead><tr><th>Mês</th><th>Valor</th><th>Situação</th></tr></thead>
+        <tbody id="pgLista"></tbody>
+      </table>
+    </section>
+
+    <!-- Indique -->
+    <section class="p-aba" data-aba="indique" hidden>
+      <h2>Indique e ganhe</h2>
+      <div class="p-indique">
+        <p>Seu código de indicação</p>
+        <div class="p-codigo"><b id="meuCodigo"></b><button type="button" class="btn btn-claro" id="copiarCodigo">Copiar</button></div>
+        <a class="btn btn-claro" id="indicarWhats" href="#" target="_blank" rel="noopener">Mandar no WhatsApp</a>
+        <p class="p-nota-claro" id="codigoMsg" role="status"></p>
+      </div>
+      <div class="p-cards p-cards-3">
+        <div class="p-card"><span>Amigos que contrataram</span><b id="indAmigos">0</b></div>
+        <div class="p-card"><span>Meses grátis ganhos</span><b id="indMeses">0</b></div>
+        <div class="p-card"><span>Você já economizou</span><b id="indEconomia">R$ 0,00</b></div>
+      </div>
+      <button type="button" class="btn btn-contorno" id="simularIndicacao">Simular: um amigo contratou com meu código</button>
+      <ul class="p-regras">
+        <li>Você ganha 1 mensalidade grátis para cada amigo que contratar com o seu código e pagar as 2 primeiras mensalidades em dia.</li>
+        <li>O seu amigo ganha 50% de desconto na primeira mensalidade.</li>
+        <li>Limite de 12 mensalidades grátis a cada 12 meses.</li>
+        <li>O mês grátis entra automaticamente na sua próxima mensalidade.</li>
+      </ul>
+    </section>
+
+    <!-- Documentos -->
+    <section class="p-aba" data-aba="documentos" hidden>
+      <h2>Documentos</h2>
+      <ul class="p-docs">
+        <li><div><b>Contrato de adesão</b><span id="docContrato"></span></div><button type="button" class="btn btn-contorno btn-pequeno" data-doc>Ver</button></li>
+        <li><div><b>Regulamento</b><span>Versão vigente</span></div><button type="button" class="btn btn-contorno btn-pequeno" data-doc>Ver</button></li>
+        <li><div><b>Comprovante da 1ª mensalidade</b><span id="docComprovante"></span></div><button type="button" class="btn btn-contorno btn-pequeno" data-doc>Ver</button></li>
+      </ul>
+      <p class="p-nota" id="docMsg" role="status"></p>
+    </section>
+
+    <!-- Meus dados -->
+    <section class="p-aba" data-aba="dados" hidden>
+      <h2>Meus dados</h2>
+      <dl class="resumo" id="pDados"></dl>
+      <div class="p-botoes">
+        <button type="button" class="btn btn-contorno" data-dados="Pedido de atualização da franquia enviado. Nossa equipe confirma em até 2 dias úteis.">Atualizar valor da franquia</button>
+        <button type="button" class="btn btn-contorno" data-dados="Seus dados serão enviados para o seu e-mail em até 15 dias, como prevê a LGPD.">Baixar meus dados (LGPD)</button>
+        <button type="button" class="btn btn-contorno" data-dados="Para cancelar, nossa equipe entra em contato para confirmar. Antes de 12 meses há multa de 3 mensalidades.">Cancelar proteção</button>
+      </div>
+      <p class="p-nota" id="dadosMsg" role="status"></p>
+    </section>
+  </main>
+</div>
+
+<footer class="rodape">
+  <div class="wrap rodape-grid">
+    <div>
+      <a href="#" class="marca marca-rodape">
+        <img src="assets/simbolo.jpg" alt="" width="36" height="36">
+        <span class="marca-nome"><b>SEGURO</b> DO <b>SEGURO</b></span>
+      </a>
+      <p>Proteção para a sua franquia. Atendimento em todo o Brasil.</p>
+    </div>
+    <div>
+      <h4>Institucional</h4>
+      <a href="#regras">Regulamento</a>
+      <a href="#seguranca">Privacidade e LGPD</a>
+      <a href="#duvidas">Dúvidas</a>
+    </div>
+    <div>
+      <h4>Atendimento</h4>
+      <a href="#" data-whats="Olá! Vim pelo site da Seguro do Seguro.">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">E-mail</a>
+    </div>
+  </div>
+  <div class="wrap rodape-legal">
+    <p>A Seguro do Seguro não é seguradora e não vende seguros. O pagamento da franquia segue as regras do regulamento e depende da aprovação do sinistro pela seguradora do cliente.</p>
+    <p>Razão social e CNPJ: em breve.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script src="contratar.js"></script>
+<script src="portal.js"></script>
+</body>
+</html>
