@@ -39,7 +39,7 @@ a { color: inherit; }
   font-family: Montserrat, sans-serif; font-weight: 700; font-size: 1rem;
   padding: .95em 1.6em; border-radius: 999px; border: 2px solid var(--marinho);
   transition: background .2s, transform .2s, box-shadow .2s;
-  cursor: pointer;
+  cursor: pointer; text-align: center;
 }
 .btn:hover { background: var(--azul); border-color: var(--azul); transform: translateY(-1px); box-shadow: 0 10px 24px -10px rgba(18, 96, 208, .7); }
 .btn:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
@@ -208,6 +208,31 @@ details p { padding: 0 24px 20px; margin: 0; color: var(--texto-suave); }
   .final { padding: 48px 22px; }
   .marca-nome { font-size: .9rem; }
   .topo .btn-pequeno { padding: .55em 1em; font-size: .82rem; }
+
+  /* Celular: margens iguais, botões alinhados e cartões mais compactos */
+  section { padding: 56px 0; }
+  .titulo-sec { margin-bottom: 28px; }
+  .titulo-sec p:not(.sobretitulo) { font-size: 1rem; }
+  .abertura-texto { font-size: 1.05rem; }
+  .abertura-acoes { flex-direction: column; gap: 10px; }
+  .abertura-acoes .btn, .final .btn { width: 100%; }
+  .abertura-pontos { flex-direction: column; gap: 6px; }
+  .balanca-lado { padding: 22px 20px; }
+  .sim-resultado .btn { padding: .9em 1.2em; }
+  .sim-whats { display: block; }
+  .passos { gap: 12px; }
+  .passos li { display: grid; grid-template-columns: 42px 1fr; column-gap: 16px; align-items: start; padding: 20px; }
+  .passo-num { grid-row: span 2; margin: 0; }
+  .passos h3 { margin: 8px 0 6px; }
+  .regras > div { padding: 16px 20px; }
+  .cobre { padding: 24px 20px; }
+  .seg-grid { gap: 12px; }
+  .seg-grid > div { padding: 20px; }
+  summary { padding: 16px 20px; }
+  details p { padding: 0 20px 16px; }
+  .rodape { padding-top: 40px; }
+  .rodape-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+  .rodape-grid > div:first-child { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 
