@@ -233,6 +233,17 @@ details p { padding: 0 24px 20px; margin: 0; color: var(--texto-suave); }
   .rodape { padding-top: 40px; }
   .rodape-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
   .rodape-grid > div:first-child { grid-column: 1 / -1; }
+
+  /* Celular: títulos e textos de abertura centralizados */
+  .abertura-grid > div:first-child, .titulo-sec, .regras-grid > div:first-child { text-align: center; margin-inline: auto; }
+  .selo { justify-content: center; letter-spacing: .14em; font-size: .72rem; }
+  .selo::before { display: none; }
+  .abertura-texto { margin-inline: auto; }
+  .abertura-pontos { align-items: center; }
+  h1, h2, .abertura-texto, .titulo-sec p { text-wrap: balance; }
+  .sim-entrada .sim-label { text-align: center; }
+  .sim-comparativo, .sim-frase { text-align: center; }
+  .sim-comparativo > div { justify-items: center; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 

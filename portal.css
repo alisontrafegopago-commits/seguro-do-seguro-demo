@@ -108,6 +108,8 @@
   .p-status, .p-indique { padding: 22px 20px; }
   .p-docs li { flex-wrap: wrap; }
   .indique { padding: 28px 20px; }
+  .indique > div:first-child { text-align: center; }
+  .indique h2, .indique > div:first-child p { text-wrap: balance; }
   .indique-passos li { padding: 14px 16px; }
   .p-ola { font-size: 1.6rem; }
   .p-tabela th, .p-tabela td { padding: 10px 8px; font-size: .85rem; }
