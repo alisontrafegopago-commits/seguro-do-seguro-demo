@@ -49,17 +49,17 @@ const aoRolar = () => topo.classList.toggle('rolou', window.scrollY > 8);
 window.addEventListener('scroll', aoRolar, { passive: true });
 aoRolar();
 
+// Marca a seção que está no meio da tela; se for uma parte fora do menu, nenhum item fica marcado
 const links = [...menu.querySelectorAll('a[href^="#"]')];
-const secoes = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-if ('IntersectionObserver' in window) {
-  const observador = new IntersectionObserver((entradas) => {
-    entradas.forEach((en) => {
-      if (!en.isIntersecting) return;
-      links.forEach((a) => a.classList.toggle('ativo', a.getAttribute('href') === `#${en.target.id}`));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  secoes.forEach((s) => observador.observe(s));
+const todasSecoes = [...document.querySelectorAll('main > section')];
+function marcarMenu() {
+  const meio = window.innerHeight * 0.45;
+  const atual = todasSecoes.find((s) => { const r = s.getBoundingClientRect(); return r.top <= meio && r.bottom > meio; });
+  links.forEach((a) => a.classList.toggle('ativo', !!atual?.id && a.getAttribute('href') === `#${atual.id}`));
 }
+window.addEventListener('scroll', marcarMenu, { passive: true });
+window.addEventListener('resize', marcarMenu);
+marcarMenu();
 
 // Janelas: regulamento e cadastro de corretor
 function abrirJanela(id) {
