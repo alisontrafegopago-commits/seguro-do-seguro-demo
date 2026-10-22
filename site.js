@@ -68,8 +68,10 @@ function abrirJanela(id) {
 }
 function fecharJanela(janela) {
   janela.hidden = true;
-  if (document.getElementById('portal').hidden && document.getElementById('portalCorretor').hidden) document.body.classList.remove('travado');
+  const algoAberto = ['portal', 'portalCorretor', 'fluxo'].some((id) => !document.getElementById(id).hidden);
+  if (!algoAberto) document.body.classList.remove('travado');
 }
+document.querySelectorAll('[data-em-breve]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); avisar(a.dataset.emBreve); }));
 document.querySelectorAll('[data-regulamento]').forEach((b) => b.addEventListener('click', (e) => { e.preventDefault(); abrirJanela('regulamento'); }));
 document.getElementById('corretorCadastrar').addEventListener('click', () => abrirJanela('cadCorretor'));
 ['regulamento', 'cadCorretor'].forEach((id) => {
@@ -107,6 +109,8 @@ document.getElementById('cadForm').addEventListener('submit', (e) => {
 
 // Contador de transparência
 const t = TRANSPARENCIA;
+// Antes do primeiro pagamento não destacamos zeros: mostramos o compromisso
+if (!t.franquiasPagas) document.querySelector('.contador').dataset.vazio = '';
 document.getElementById('ctPagas').textContent = t.franquiasPagas.toLocaleString('pt-BR');
 document.getElementById('ctTotal').textContent = brl(t.totalPago).replace(',00', '');
 if (t.tempoMedioHoras) {

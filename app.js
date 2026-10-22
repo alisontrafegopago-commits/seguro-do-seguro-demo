@@ -18,10 +18,20 @@ function linkWhats(texto) {
   return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`;
 }
 
+// Aviso curto no rodapé da tela, para ações que ainda não estão configuradas
+let avisoTempo;
+function avisar(texto) {
+  const aviso = document.getElementById('avisoFlutuante');
+  aviso.textContent = texto;
+  aviso.hidden = false;
+  clearTimeout(avisoTempo);
+  avisoTempo = setTimeout(() => { aviso.hidden = true; }, 4000);
+}
+
 function abrirWhats(texto) {
   const url = linkWhats(texto);
   if (url) window.open(url, '_blank', 'noopener');
-  else console.info('[Seguro do Seguro] Número de WhatsApp ainda não configurado.');
+  else avisar('O WhatsApp oficial entra aqui antes do lançamento.');
 }
 
 const campo = document.getElementById('valorFranquia');
@@ -46,7 +56,7 @@ function atualizar(valor) {
   document.getElementById('simSem').textContent = brl(franquia);
   document.getElementById('simCom').textContent = brl(mes);
   document.getElementById('simFrase').textContent =
-    `Com um ano de mensalidades você investe ${brl(mes * 12)} para não tirar ${brl(franquia)} do bolso.`;
+    `Em um ano são ${brl(mes * 12)}, e você não tira ${brl(franquia)} do bolso de uma vez.`;
 }
 
 campo.addEventListener('input', () => {

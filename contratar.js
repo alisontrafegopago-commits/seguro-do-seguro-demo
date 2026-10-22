@@ -78,7 +78,7 @@ function irPara(n) {
   });
   erro.textContent = '';
   btnVoltar.hidden = n === 1 || n === 5;
-  btnAvancar.textContent = { 3: 'Ir para o pagamento', 4: 'Simular pagamento confirmado', 5: 'Fechar' }[n] || 'Continuar';
+  btnAvancar.textContent = { 3: 'Ir para o pagamento', 4: 'Simular pagamento confirmado', 5: 'Abrir meu portal' }[n] || 'Continuar';
   if (n === 3) montarResumo();
   if (n === 4) {
     $('pagValor').textContent = temIndicacao()

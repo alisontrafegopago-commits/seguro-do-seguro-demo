@@ -1,7 +1,6 @@
 /* Topo: menu que acompanha a rolagem, botão Entrar e menu do celular */
 section[id] { scroll-margin-top: 72px; }
 .topo { transition: box-shadow .2s; }
-.topo-inner { transition: height .2s; }
 .topo.rolou { box-shadow: 0 6px 24px -14px rgba(11, 31, 69, .35); }
 .topo.rolou .topo-inner { height: 62px; }
 .menu a { position: relative; padding: 6px 0; transition: color .2s; }
@@ -35,7 +34,7 @@ section[id] { scroll-margin-top: 72px; }
 .ideia-card.destaque h3 { color: var(--branco); }
 .ideia-card.destaque p { color: rgba(255,255,255,.85); }
 .ideia-card.destaque .ideia-tag { color: #8DB6F5; }
-.ideia-dica { margin: 24px 0 0; color: var(--texto-suave); font-size: .95rem; }
+.ideia-dica { margin: 24px 0 0; color: var(--texto-suave); font-size: .95rem; max-width: 70ch; }
 
 /* Transparência */
 .transp-sec { background: var(--fundo); }
@@ -43,6 +42,10 @@ section[id] { scroll-margin-top: 72px; }
 .contador > div { background: var(--branco); border: 1px solid var(--prata-claro); border-radius: var(--raio); padding: 26px 24px; display: grid; gap: 4px; }
 .contador b { font-family: Montserrat, sans-serif; font-weight: 800; font-size: 2.4rem; color: var(--marinho); line-height: 1.1; font-variant-numeric: tabular-nums; }
 .contador span { color: var(--texto-suave); font-size: .92rem; }
+.contador[data-vazio] { grid-template-columns: 1fr; }
+.contador[data-vazio] > div:not(:last-child) { display: none; }
+.contador[data-vazio] > div { grid-template-columns: auto 1fr; align-items: center; column-gap: 20px; }
+.contador[data-vazio] b { color: var(--azul); }
 .provas { margin-top: 16px; }
 .provas-vazio { border: 1.5px dashed var(--prata); border-radius: var(--raio); padding: 26px 24px; text-align: center; }
 .provas-vazio b { color: var(--marinho); font-family: Montserrat, sans-serif; }
@@ -68,16 +71,17 @@ section[id] { scroll-margin-top: 72px; }
 .premios p { margin: 0; color: var(--texto-suave); font-size: .92rem; }
 .vantagens { list-style: none; margin: 0; padding: 26px 24px; border: 1px solid var(--prata-claro); border-radius: var(--raio); display: grid; gap: 14px; align-content: start; }
 .vantagens li { padding-left: 30px; position: relative; color: var(--texto-suave); }
-.vantagens li::before { content: "✓"; position: absolute; left: 0; color: var(--azul); font-weight: 800; }
+.vantagens li::before { position: absolute; left: 0; top: .2em; }
 .vantagens b { color: var(--marinho); }
 .corretor-acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.corretor-nota { margin: 14px 0 0; font-size: .88rem; color: var(--texto-suave); }
+.corretor-nota { margin: 14px 0 0; font-size: .88rem; color: var(--texto-suave); max-width: 70ch; }
 
 /* Clube de indicação */
 .indique .clube-niveis, .clube-nota { grid-column: 1 / -1; }
 .indique .clube-niveis { margin-top: 8px; }
 .clube-niveis .nivel b { font-size: 2rem; }
-.clube-nota { margin: -28px 0 0; font-size: .88rem; color: var(--texto-suave); }
+.clube-nota { margin: 0; font-size: .88rem; color: var(--texto-suave); max-width: 70ch; }
+.indique .clube-niveis + .clube-nota { margin-top: -24px; }
 .clube-status[data-nivel="nenhum"] { background: linear-gradient(135deg, #556075, #6B7790); }
 .clube-status[data-nivel="embaixador"] { background: linear-gradient(135deg, #4A5568, #718096); }
 .clube-status[data-nivel="padrinho"] { background: linear-gradient(135deg, #8A6200, #C79A1E); }
@@ -115,13 +119,13 @@ section[id] { scroll-margin-top: 72px; }
 @media (max-width: 980px) {
   .menu { display: none; }
   .btn-menu { display: flex; }
-  .topo.menu-aberto .menu { display: flex; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--branco); border-bottom: 1px solid var(--prata-claro); box-shadow: var(--sombra); padding: 8px 16px 20px; }
+  .topo.menu-aberto .menu { display: flex; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--branco); border-bottom: 1px solid var(--prata-claro); box-shadow: 0 14px 30px -14px rgba(11,31,69,.3), 0 0 0 100vmax rgba(7, 21, 48, .45); padding: 8px 16px 20px; }
   .topo.menu-aberto .menu a { padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid var(--prata-claro); }
   .topo.menu-aberto .menu a::after { display: none; }
   .ideia-grid, .contador { grid-template-columns: 1fr; }
   .niveis, .metas { grid-template-columns: 1fr 1fr; }
   .corretor-grid { grid-template-columns: 1fr; }
-  .clube-nota { margin-top: -14px; }
+  .indique .clube-niveis + .clube-nota { margin-top: -12px; }
 }
 @media (max-width: 720px) {
   .entrar { display: none; }
