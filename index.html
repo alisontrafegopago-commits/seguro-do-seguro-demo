@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seguro do Seguro | Proteção para a sua franquia</title>
-<meta name="description" content="Bateu o carro? A franquia é com a gente. Mensalidade a partir de R$ 39,90 e a Seguro do Seguro paga a franquia do seu seguro direto na oficina.">
+<meta name="description" content="Franquia maior, seguro mais barato. A Seguro do Seguro paga a franquia do seu seguro em até 24 horas, direto na oficina. Sem fidelidade, a partir de R$ 39,90 por mês.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0B1F45">
 <link rel="icon" href="assets/simbolo.jpg">
@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="portal.css">
+<link rel="stylesheet" href="corretor.css">
 </head>
 <body>
 <div style="background:#FFF4D6;color:#6B4600;text-align:center;font-size:.85rem;font-weight:600;padding:8px 16px">Versão de demonstração para aprovação. Nada é salvo e nenhum pagamento é real.</div>
@@ -23,15 +24,30 @@
       <img src="assets/simbolo.jpg" alt="" width="44" height="44">
       <span class="marca-nome"><b>SEGURO</b> DO <b>SEGURO</b></span>
     </a>
-    <nav class="menu" aria-label="Principal">
+    <nav class="menu" id="menu" aria-label="Principal">
       <a href="#como-funciona">Como funciona</a>
-      <a href="#regras">Regras claras</a>
-      <a href="#seguranca">Seus dados</a>
+      <a href="#simulador">Quanto custa</a>
+      <a href="#cobre">O que cobre</a>
+      <a href="#corretores">Corretores</a>
       <a href="#duvidas">Dúvidas</a>
+      <div class="menu-celular">
+        <button type="button" class="btn btn-contorno" data-entrar="cliente">Área do cliente</button>
+        <button type="button" class="btn btn-contorno" data-entrar="corretor">Portal do corretor</button>
+      </div>
     </nav>
     <div class="topo-acoes">
-      <button type="button" class="link-portal" id="abrirPortalDemo">Área do cliente</button>
-      <a href="#simulador" class="btn btn-pequeno">Simular agora</a>
+      <div class="entrar">
+        <button type="button" class="btn-entrar" id="entrarBotao" aria-expanded="false" aria-controls="entrarMenu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+          Entrar
+        </button>
+        <div class="entrar-menu" id="entrarMenu" hidden>
+          <button type="button" data-entrar="cliente"><b>Área do cliente</b><span>Carteirinha, pagamentos e acionamento</span></button>
+          <button type="button" data-entrar="corretor"><b>Portal do corretor</b><span>Clientes, comissões e metas</span></button>
+        </div>
+      </div>
+      <a href="#simulador" class="btn btn-pequeno">Quanto eu pago?</a>
+      <button type="button" class="btn-menu" id="menuBotao" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -43,16 +59,16 @@
   <div class="wrap abertura-grid">
     <div>
       <p class="selo">Proteção para a sua franquia</p>
-      <h1>Bateu o carro?<br><span>A franquia é com a gente.</span></h1>
-      <p class="abertura-texto">Seu seguro cobre o conserto, mas cobra a franquia de você. Com a Seguro do Seguro, você paga uma mensalidade pequena e, quando a seguradora aprova o sinistro, nós pagamos a franquia direto na oficina.</p>
+      <h1>Franquia maior, seguro mais barato.<br><span>A franquia é com a gente.</span></h1>
+      <p class="abertura-texto">Quanto maior a franquia, menor costuma ser o preço do seguro. Escolha a franquia maior e deixe ela com a gente: quando a seguradora aprova o sinistro, pagamos a sua franquia em até 24 horas, direto na oficina.</p>
       <div class="abertura-acoes">
         <a href="#simulador" class="btn">Ver quanto eu pago</a>
-        <a href="#como-funciona" class="btn btn-contorno">Entender como funciona</a>
+        <a href="#ideia" class="btn btn-contorno">Entender a ideia</a>
       </div>
       <ul class="abertura-pontos">
+        <li>Franquia paga em <b>até 24 horas</b></li>
+        <li><b>Sem fidelidade</b></li>
         <li>A partir de <b>R$ 39,90/mês</b></li>
-        <li>Contratação 100% online</li>
-        <li>Atende todo o Brasil</li>
       </ul>
     </div>
 
@@ -69,6 +85,35 @@
         <span class="balanca-nota">e a franquia de R$ 5.000 fica por nossa conta</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- A IDEIA: FRANQUIA MAIOR -->
+<section id="ideia" class="ideia-sec">
+  <div class="wrap">
+    <div class="titulo-sec">
+      <p class="sobretitulo">A ideia</p>
+      <h2>Pare de pagar caro para ter franquia baixa</h2>
+      <p>No seguro de carro, você escolhe: franquia baixa com seguro mais caro, ou franquia alta com seguro mais barato. Com a gente, você não precisa escolher.</p>
+    </div>
+    <div class="ideia-grid">
+      <div class="ideia-card">
+        <span class="ideia-tag">Opção comum</span>
+        <h3>Franquia baixa</h3>
+        <p>Você paga mais caro pelo seguro, todo ano, só para a franquia doer menos se um dia bater.</p>
+      </div>
+      <div class="ideia-card">
+        <span class="ideia-tag">Opção arriscada</span>
+        <h3>Franquia alta</h3>
+        <p>O seguro fica mais barato, mas se você bater, a franquia inteira sai do seu bolso de uma vez.</p>
+      </div>
+      <div class="ideia-card destaque">
+        <span class="ideia-tag">Opção inteligente</span>
+        <h3>Franquia alta + Seguro do Seguro</h3>
+        <p>Seguro mais barato <b>e</b> a franquia por nossa conta, paga em até 24 horas direto na oficina.</p>
+      </div>
+    </div>
+    <p class="ideia-dica">Dica: na próxima renovação, peça ao seu corretor para simular o seu seguro com franquias diferentes e compare.</p>
   </div>
 </section>
 
@@ -148,7 +193,7 @@
       <li>
         <span class="passo-num">4</span>
         <h3>Nós pagamos a franquia</h3>
-        <p>Aprovado o sinistro, pagamos a franquia direto à oficina ou à seguradora. Você não tira nada do bolso.</p>
+        <p>Confirmado o sinistro, pagamos a franquia em até 24 horas, direto à oficina ou à seguradora. Você acompanha tudo pelo portal.</p>
       </li>
     </ol>
   </div>
@@ -160,23 +205,24 @@
     <div>
       <p class="sobretitulo">Regras claras</p>
       <h2>Tudo combinado antes, nada escondido depois</h2>
-      <p>Proteção boa é aquela que você entende. Aqui estão as regras principais, sem letra miúda. A versão completa fica no regulamento.</p>
+      <p>Proteção boa é aquela que você entende. Aqui estão as regras principais, sem letra miúda.</p>
+      <button type="button" class="btn btn-contorno" data-regulamento>Ler o regulamento resumido</button>
     </div>
     <dl class="regras">
+      <div><dt>Pagamento</dt><dd>Em até 24 horas após a confirmação do sinistro, direto à oficina ou à seguradora</dd></div>
+      <div><dt>Sem fidelidade</dt><dd>Nunca acionou? Cancele quando quiser, sem multa</dd></div>
       <div><dt>Mensalidade</dt><dd>1% do valor da franquia, com mínimo de R$ 39,90</dd></div>
       <div><dt>Carência</dt><dd>90 dias a partir do primeiro pagamento</dd></div>
       <div><dt>Uso</dt><dd>1 franquia paga a cada 12 meses de contrato</dd></div>
       <div><dt>Limite</dt><dd>Franquias de até R$ 10.000. Acima disso, fale com o gerente</dd></div>
-      <div><dt>Pagamento</dt><dd>Direto à oficina ou à seguradora, após o sinistro aprovado</dd></div>
       <div><dt>Onde vale</dt><dd>Todo o Brasil, com o seguro de qualquer seguradora</dd></div>
       <div><dt>Desistência</dt><dd>7 dias para desistir com o dinheiro de volta, como manda o Código de Defesa do Consumidor</dd></div>
-      <div><dt>Cancelamento</dt><dd>Depois dos 7 dias, a qualquer momento. Antes de 12 meses há multa de 3 mensalidades</dd></div>
     </dl>
   </div>
 </section>
 
 <!-- COBRE / NÃO COBRE -->
-<section class="cobre-sec">
+<section id="cobre" class="cobre-sec">
   <div class="wrap cobre-grid">
     <div class="cobre sim-cobre">
       <h3>O que está protegido</h3>
@@ -194,6 +240,28 @@
         <li>Batidas durante a carência ou com mensalidade em atraso</li>
         <li>Reembolso de franquia que você já pagou</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARÊNCIA: CONTADOR E COMPROVANTES -->
+<section id="transparencia" class="transp-sec">
+  <div class="wrap">
+    <div class="titulo-sec">
+      <p class="sobretitulo">Transparência</p>
+      <h2>Cada franquia paga, mostrada aqui</h2>
+      <p>Não pedimos que você acredite na gente. Mostramos. Os números abaixo são atualizados a cada franquia paga.</p>
+    </div>
+    <div class="contador">
+      <div><b id="ctPagas">0</b><span>franquias pagas</span></div>
+      <div><b id="ctTotal">R$ 0</b><span>pagos em franquias</span></div>
+      <div><b id="ctTempo">até 24h</b><span id="ctTempoRot">prazo de pagamento</span></div>
+    </div>
+    <div class="provas" id="provas">
+      <div class="provas-vazio" id="provasVazio">
+        <b>Estamos começando agora.</b>
+        <p>Os comprovantes de pagamento e os depoimentos dos nossos clientes aparecem aqui, sempre com autorização do cliente e com nome, placa e CPF escondidos.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -234,6 +302,14 @@
       <p>Não. Você contrata pelo celular informando os dados do carro e da apólice.</p>
     </details>
     <details>
+      <summary>Em quanto tempo vocês pagam a franquia?</summary>
+      <p>Em até 24 horas depois da confirmação do sinistro, ou seja, quando recebemos a aprovação da seguradora e o orçamento da oficina. Pagamos direto à oficina ou à seguradora, e você acompanha cada etapa pelo portal.</p>
+    </details>
+    <details>
+      <summary>Por que escolher uma franquia maior?</summary>
+      <p>Porque quanto maior a franquia, menor costuma ser o preço do seguro. Com a franquia por nossa conta, você aproveita o seguro mais barato sem o risco de pagar a franquia do bolso. Peça ao seu corretor para comparar.</p>
+    </details>
+    <details>
       <summary>Quando posso usar?</summary>
       <p>Depois de 90 dias de carência, contados a partir do primeiro pagamento confirmado.</p>
     </details>
@@ -247,7 +323,7 @@
     </details>
     <details>
       <summary>Posso cancelar?</summary>
-      <p>Pode, a qualquer momento. Se cancelar antes de completar 12 meses, há multa de 3 mensalidades.</p>
+      <p>Pode. Não temos fidelidade: se você nunca acionou a proteção, cancela quando quiser, sem multa. Se já recebeu uma franquia paga por nós, completa os 12 meses do contrato ou paga as mensalidades que faltam.</p>
     </details>
   </div>
 </section>
@@ -265,6 +341,50 @@
       <li><span><b>Mande para os amigos</b> pelo WhatsApp</span></li>
       <li><span><b>Ganhe 1 mês grátis</b> quando o amigo pagar as 2 primeiras mensalidades</span></li>
     </ol>
+  </div>
+</section>
+
+<!-- CORRETORES -->
+<section id="corretores" class="corretores-sec">
+  <div class="wrap">
+    <div class="titulo-sec">
+      <p class="sobretitulo">Para corretores</p>
+      <h2>Sua comissão cresce junto com a sua carteira</h2>
+      <p>Comece com 15% e chegue a 30%, todo mês, enquanto o cliente estiver ativo. Quanto mais clientes ativos, maior a sua comissão sobre <b>toda</b> a carteira.</p>
+    </div>
+    <div class="niveis">
+      <div class="nivel"><span class="nivel-nome">Parceiro</span><b>15%</b><span>1 a 24 clientes ativos</span></div>
+      <div class="nivel"><span class="nivel-nome">Prata</span><b>20%</b><span>25 a 49 clientes ativos</span></div>
+      <div class="nivel"><span class="nivel-nome">Ouro</span><b>25%</b><span>50 a 99 clientes ativos</span></div>
+      <div class="nivel topo-nivel"><span class="nivel-nome">Diamante</span><b>30%</b><span>100 ou mais clientes ativos</span></div>
+    </div>
+    <div class="corretor-grid">
+      <div class="premios">
+        <h3>Prêmios por meta no mês</h3>
+        <table>
+          <thead><tr><th>Clientes novos no mês</th><th>Prêmio</th></tr></thead>
+          <tbody>
+            <tr><td>5</td><td>R$ 100</td></tr>
+            <tr><td>10</td><td>R$ 250</td></tr>
+            <tr><td>20</td><td>R$ 600</td></tr>
+            <tr><td>40</td><td>R$ 1.500</td></tr>
+          </tbody>
+        </table>
+        <p>Mais o <b>Corretor do mês</b>, com prêmio especial e destaque no nosso Instagram, e campanhas de época com prêmios em dobro.</p>
+      </div>
+      <ul class="vantagens">
+        <li><b>Comissão recorrente</b> todo mês, enquanto o cliente pagar em dia</li>
+        <li><b>Fácil de vender:</b> franquia paga em até 24 horas e sem fidelidade para o cliente</li>
+        <li><b>Argumento pronto:</b> franquia maior deixa o seguro do seu cliente mais barato</li>
+        <li><b>Portal do corretor</b> com clientes, comissões e quanto falta para o próximo nível</li>
+        <li><b>Kit de divulgação</b> com link próprio, artes e vídeo</li>
+      </ul>
+    </div>
+    <div class="corretor-acoes">
+      <button type="button" class="btn" id="corretorCadastrar">Quero ser corretor parceiro</button>
+      <button type="button" class="btn btn-contorno" data-entrar="corretor">Ver o portal do corretor</button>
+    </div>
+    <p class="corretor-nota">Cliente ativo é o cliente com a mensalidade em dia. O nível é revisto todo mês e a nova comissão vale para toda a carteira.</p>
   </div>
 </section>
 
@@ -384,6 +504,155 @@
   </div>
 </div>
 
+<!-- REGULAMENTO RESUMIDO -->
+<div class="fluxo" id="regulamento" role="dialog" aria-modal="true" aria-labelledby="regTitulo" hidden>
+  <div class="fluxo-caixa">
+    <div class="fluxo-topo">
+      <div>
+        <p class="fluxo-demo">Versão resumida, em revisão pelo advogado</p>
+        <h2 id="regTitulo">Regulamento resumido</h2>
+      </div>
+      <button type="button" class="fluxo-fechar" data-fechar aria-label="Fechar">✕</button>
+    </div>
+    <ol class="reg-lista">
+      <li><b>O que fazemos.</b> Pagamos a franquia do seguro do seu carro quando a sua seguradora aprova o sinistro. Não somos seguradora e não vendemos seguro.</li>
+      <li><b>Mensalidade.</b> 1% do valor da franquia por mês, com mínimo de R$ 39,90.</li>
+      <li><b>Carência.</b> A proteção começa 90 dias depois do primeiro pagamento confirmado.</li>
+      <li><b>Uso.</b> 1 franquia paga a cada 12 meses de contrato.</li>
+      <li><b>Limite.</b> Franquias de até R$ 10.000. Acima disso, a condição é combinada com o gerente.</li>
+      <li><b>Prazo de pagamento.</b> Em até 24 horas depois da confirmação do sinistro, que acontece quando recebemos a aprovação da seguradora e o orçamento da oficina.</li>
+      <li><b>Para quem pagamos.</b> Direto à oficina ou à seguradora. Não reembolsamos franquia já paga pelo cliente.</li>
+      <li><b>O que não cobrimos.</b> Perda total, roubo ou furto, sinistro negado pela seguradora e batidas durante a carência ou com mensalidade em atraso.</li>
+      <li><b>Atraso.</b> Com a mensalidade em atraso, a proteção fica suspensa até o pagamento.</li>
+      <li><b>Desistência.</b> 7 dias para desistir com o dinheiro de volta, como manda o Código de Defesa do Consumidor.</li>
+      <li><b>Cancelamento sem fidelidade.</b> Quem nunca acionou cancela quando quiser, sem multa. Quem já recebeu uma franquia completa os 12 meses do contrato ou paga as mensalidades que faltam.</li>
+      <li><b>Seus dados.</b> Tratados conforme a LGPD. Você pode pedir uma cópia ou a exclusão a qualquer momento.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- CADASTRO DE CORRETOR (DEMONSTRAÇÃO) -->
+<div class="fluxo" id="cadCorretor" role="dialog" aria-modal="true" aria-labelledby="cadTitulo" hidden>
+  <div class="fluxo-caixa">
+    <div class="fluxo-topo">
+      <div>
+        <p class="fluxo-demo">Demonstração: nada é salvo</p>
+        <h2 id="cadTitulo">Seja corretor parceiro</h2>
+      </div>
+      <button type="button" class="fluxo-fechar" data-fechar aria-label="Fechar">✕</button>
+    </div>
+    <form id="cadForm" class="cad-form" novalidate>
+      <div class="campos">
+        <label class="campo campo-cheio">Nome completo<input id="cNomeCor" required autocomplete="name"></label>
+        <label class="campo">CPF ou CNPJ<input id="cDocCor" required inputmode="numeric" placeholder="Somente números"></label>
+        <label class="campo">Registro SUSEP (se tiver)<input id="cSusep" placeholder="Opcional"></label>
+        <label class="campo">Celular com WhatsApp<input id="cCelCor" required inputmode="tel" placeholder="(00) 00000-0000" maxlength="15"></label>
+        <label class="campo">Cidade e estado<input id="cCidade" required placeholder="Ex.: Fortaleza, CE"></label>
+      </div>
+      <p class="fluxo-erro" id="cadErro" role="alert"></p>
+      <button type="submit" class="btn btn-largo">Criar meu acesso</button>
+      <p class="fluxo-dica">Na versão final, a gente confere o cadastro e libera o seu acesso em até 1 dia útil.</p>
+    </form>
+  </div>
+</div>
+
+<!-- PORTAL DO CORRETOR (DEMONSTRAÇÃO) -->
+<div class="portal portal-corretor" id="portalCorretor" hidden>
+  <aside class="p-lateral">
+    <div class="p-marca">
+      <img src="assets/simbolo.jpg" alt="" width="36" height="36">
+      <span class="marca-nome"><b>SEGURO</b> DO <b>SEGURO</b></span>
+    </div>
+    <nav class="p-menu" aria-label="Portal do corretor">
+      <button type="button" data-caba="inicio" class="ativo">Início</button>
+      <button type="button" data-caba="clientes">Meus clientes</button>
+      <button type="button" data-caba="comissoes">Comissões</button>
+      <button type="button" data-caba="metas">Metas e prêmios</button>
+      <button type="button" data-caba="divulgar">Divulgar</button>
+    </nav>
+    <button type="button" class="p-sair" id="corretorSair">Sair do portal</button>
+  </aside>
+
+  <main class="p-conteudo">
+    <div class="p-demo c-demo">
+      <span>Demonstração do portal do corretor. Mexa para ver como muda:</span>
+      <label>Clientes ativos <b id="cdAtivosVal">18</b><input type="range" id="cdAtivos" min="0" max="150" value="18"></label>
+      <label>Clientes novos no mês <b id="cdNovosVal">7</b><input type="range" id="cdNovos" min="0" max="50" value="7"></label>
+    </div>
+
+    <section class="c-aba" data-caba="inicio">
+      <h1 class="p-ola">Olá, <span id="corNome">Corretor</span></h1>
+      <div class="p-status c-nivel" id="cNivelCaixa">
+        <div>
+          <p class="p-status-rot">Seu nível</p>
+          <p class="p-status-txt"><span id="cNivelNome"></span> · <span id="cNivelPct"></span> de comissão</p>
+        </div>
+        <div class="p-barra"><span id="cNivelBarra"></span></div>
+        <p class="p-status-nota" id="cNivelFalta"></p>
+      </div>
+      <div class="p-cards">
+        <div class="p-card"><span>Clientes ativos</span><b id="cAtivos"></b></div>
+        <div class="p-card"><span>Comissão prevista no mês</span><b id="cComissao"></b></div>
+        <div class="p-card"><span>Clientes novos no mês</span><b id="cNovos"></b></div>
+        <div class="p-card"><span>Prêmio do mês</span><b id="cPremio"></b></div>
+      </div>
+      <div class="p-alerta" id="cDica"></div>
+    </section>
+
+    <section class="c-aba" data-caba="clientes" hidden>
+      <h2>Meus clientes</h2>
+      <p class="p-nota">Nomes de exemplo. Na versão final aparecem os seus clientes de verdade.</p>
+      <div class="tabela-rola">
+        <table class="p-tabela">
+          <thead><tr><th>Cliente</th><th>Franquia</th><th>Mensalidade</th><th>Situação</th></tr></thead>
+          <tbody id="cLista"></tbody>
+        </table>
+      </div>
+      <p class="p-nota" id="cListaMais"></p>
+    </section>
+
+    <section class="c-aba" data-caba="comissoes" hidden>
+      <h2>Comissões</h2>
+      <div class="p-proxima">
+        <div><span>Comissão prevista neste mês</span><b id="cComissao2"></b><small id="cComissaoConta"></small></div>
+      </div>
+      <table class="p-tabela">
+        <thead><tr><th>Item</th><th>Valor</th></tr></thead>
+        <tbody id="cExtrato"></tbody>
+      </table>
+      <p class="p-nota">A comissão é paga todo mês sobre as mensalidades pagas pelos seus clientes ativos.</p>
+    </section>
+
+    <section class="c-aba" data-caba="metas" hidden>
+      <h2>Metas e prêmios do mês</h2>
+      <ol class="metas" id="cMetas"></ol>
+      <p class="p-nota">Cliente novo conta para a meta depois que paga a 1ª mensalidade. Mais: Corretor do mês, com prêmio especial e destaque no nosso Instagram.</p>
+      <h2 class="c-sub">Níveis de comissão</h2>
+      <table class="p-tabela">
+        <thead><tr><th>Nível</th><th>Clientes ativos</th><th>Comissão</th></tr></thead>
+        <tbody id="cNiveis"></tbody>
+      </table>
+    </section>
+
+    <section class="c-aba" data-caba="divulgar" hidden>
+      <h2>Divulgar</h2>
+      <div class="p-indique">
+        <p>Seu link de corretor</p>
+        <div class="p-codigo"><b id="cLink"></b><button type="button" class="btn btn-claro" id="cCopiar">Copiar</button></div>
+        <a class="btn btn-claro" id="cWhats" href="#" target="_blank" rel="noopener">Mandar no WhatsApp</a>
+        <p class="p-nota-claro" id="cMsg" role="status"></p>
+      </div>
+      <h2 class="c-sub">Kit de divulgação</h2>
+      <ul class="p-docs">
+        <li><div><b>Artes para Instagram e WhatsApp</b><span>Posts e stories prontos com o seu link</span></div><button type="button" class="btn btn-contorno btn-pequeno" data-kit>Baixar</button></li>
+        <li><div><b>Vídeo curto explicando</b><span>1 minuto, para mandar ao cliente</span></div><button type="button" class="btn btn-contorno btn-pequeno" data-kit>Baixar</button></li>
+        <li><div><b>Roteiro de venda</b><span>Como explicar a ideia da franquia maior</span></div><button type="button" class="btn btn-contorno btn-pequeno" data-kit>Ver</button></li>
+      </ul>
+      <p class="p-nota" id="cKitMsg" role="status"></p>
+    </section>
+  </main>
+</div>
+
 <!-- PORTAL DO CLIENTE (DEMONSTRAÇÃO) -->
 <div class="portal" id="portal" hidden>
   <aside class="p-lateral">
@@ -461,7 +730,7 @@
         <ol class="linha-tempo" id="linhaTempo">
           <li>Pedido recebido</li>
           <li>Documentos em análise</li>
-          <li>Sinistro aprovado pela seguradora</li>
+          <li>Sinistro confirmado: o prazo de 24 horas começa</li>
           <li>Franquia paga à oficina</li>
         </ol>
         <button type="button" class="btn btn-contorno" id="avancarStatus">Simular próxima etapa</button>
@@ -523,7 +792,7 @@
       <div class="p-botoes">
         <button type="button" class="btn btn-contorno" data-dados="Pedido de atualização da franquia enviado. Nossa equipe confirma em até 2 dias úteis.">Atualizar valor da franquia</button>
         <button type="button" class="btn btn-contorno" data-dados="Seus dados serão enviados para o seu e-mail em até 15 dias, como prevê a LGPD.">Baixar meus dados (LGPD)</button>
-        <button type="button" class="btn btn-contorno" data-dados="Para cancelar, nossa equipe entra em contato para confirmar. Antes de 12 meses há multa de 3 mensalidades.">Cancelar proteção</button>
+        <button type="button" class="btn btn-contorno" data-dados="Sem fidelidade: como você nunca acionou, o cancelamento é sem multa. Nossa equipe só confirma o pedido com você pelo WhatsApp.">Cancelar proteção</button>
       </div>
       <p class="p-nota" id="dadosMsg" role="status"></p>
     </section>
@@ -541,9 +810,15 @@
     </div>
     <div>
       <h4>Institucional</h4>
-      <a href="#regras">Regulamento</a>
+      <a href="#regras" data-regulamento>Regulamento</a>
       <a href="#seguranca">Privacidade e LGPD</a>
+      <a href="#transparencia">Franquias pagas</a>
       <a href="#duvidas">Dúvidas</a>
+    </div>
+    <div>
+      <h4>Corretores</h4>
+      <a href="#corretores">Seja parceiro</a>
+      <a href="#" data-entrar="corretor">Portal do corretor</a>
     </div>
     <div>
       <h4>Atendimento</h4>
@@ -561,5 +836,7 @@
 <script src="app.js"></script>
 <script src="contratar.js"></script>
 <script src="portal.js"></script>
+<script src="corretor.js"></script>
+<script src="site.js"></script>
 </body>
 </html>

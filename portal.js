@@ -33,8 +33,8 @@ function abrirPortal(dados) {
   p$('acionarForm').reset();
   p$('acionarAcomp').hidden = true;
   preencher();
-  trocarAba('inicio');
   portal.hidden = false;
+  trocarAba('inicio');
   document.body.classList.add('travado');
   window.scrollTo(0, 0);
 }
@@ -129,11 +129,19 @@ function preencher() {
   });
 }
 
+// No celular o menu vira uma faixa que desliza: centraliza a aba escolhida sem rolar a página
+function centralizarAba(botao) {
+  const faixa = botao.parentElement;
+  if (faixa.scrollWidth <= faixa.clientWidth) return;
+  const desloc = botao.getBoundingClientRect().left - faixa.getBoundingClientRect().left;
+  faixa.scrollLeft += desloc - (faixa.clientWidth - botao.offsetWidth) / 2;
+}
+
 function trocarAba(nome) {
   portal.querySelectorAll('.p-aba').forEach((s) => { s.hidden = s.dataset.aba !== nome; });
   portal.querySelectorAll('.p-menu button').forEach((b) => {
     b.classList.toggle('ativo', b.dataset.aba === nome);
-    if (b.dataset.aba === nome) b.scrollIntoView({ block: 'nearest', inline: 'center' });
+    if (b.dataset.aba === nome) centralizarAba(b);
   });
   ['pixMsg', 'codigoMsg', 'docMsg', 'dadosMsg'].forEach((id) => { p$(id).textContent = ''; });
   portal.querySelector('.p-conteudo').scrollTop = 0;
@@ -150,7 +158,6 @@ async function copiar(texto, msgId, ok) {
 
 portal.querySelectorAll('.p-menu button').forEach((b) => b.addEventListener('click', () => trocarAba(b.dataset.aba)));
 p$('portalSair').addEventListener('click', fecharPortal);
-p$('abrirPortalDemo').addEventListener('click', () => abrirPortal());
 p$('pularCarencia').addEventListener('change', preencher);
 
 p$('copiarPix').addEventListener('click', () => copiar('00020126DEMONSTRACAO-SEGURO-DO-SEGURO', 'pixMsg', 'Código Pix de demonstração copiado. Na versão final, é o Pix real da empresa.'));
