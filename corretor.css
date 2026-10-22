@@ -73,6 +73,18 @@ section[id] { scroll-margin-top: 72px; }
 .corretor-acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .corretor-nota { margin: 14px 0 0; font-size: .88rem; color: var(--texto-suave); }
 
+/* Clube de indicação */
+.indique .clube-niveis, .clube-nota { grid-column: 1 / -1; }
+.indique .clube-niveis { margin-top: 8px; }
+.clube-niveis .nivel b { font-size: 2rem; }
+.clube-nota { margin: -28px 0 0; font-size: .88rem; color: var(--texto-suave); }
+.clube-status[data-nivel="nenhum"] { background: linear-gradient(135deg, #556075, #6B7790); }
+.clube-status[data-nivel="embaixador"] { background: linear-gradient(135deg, #4A5568, #718096); }
+.clube-status[data-nivel="padrinho"] { background: linear-gradient(135deg, #8A6200, #C79A1E); }
+.clube-status[data-nivel="sócio"] { background: linear-gradient(135deg, var(--marinho), var(--azul)); }
+.p-aba .p-indique { margin-top: 16px; }
+.p-aba .p-botoes + .p-tabela { margin-top: 20px; }
+
 /* Regulamento e cadastro */
 .reg-lista { margin: 20px 0 0; padding-left: 22px; display: grid; gap: 12px; color: var(--texto-suave); }
 .reg-lista b { color: var(--marinho); }
@@ -109,6 +121,7 @@ section[id] { scroll-margin-top: 72px; }
   .ideia-grid, .contador { grid-template-columns: 1fr; }
   .niveis, .metas { grid-template-columns: 1fr 1fr; }
   .corretor-grid { grid-template-columns: 1fr; }
+  .clube-nota { margin-top: -14px; }
 }
 @media (max-width: 720px) {
   .entrar { display: none; }
@@ -121,6 +134,8 @@ section[id] { scroll-margin-top: 72px; }
   .corretor-acoes .btn { width: 100%; }
   .nivel { padding: 18px 16px; }
   .c-sub { margin-top: 24px; }
+  .metas li { min-width: 0; padding: 14px; }
+  .metas span { font-size: 1.15rem; }
 }
 @media (max-width: 380px) {
   .topo .btn-pequeno { padding: .55em .8em; font-size: .78rem; }

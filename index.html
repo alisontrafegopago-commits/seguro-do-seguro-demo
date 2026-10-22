@@ -332,15 +332,22 @@
 <section class="indique-sec">
   <div class="wrap indique">
     <div>
-      <p class="sobretitulo">Indique e ganhe</p>
-      <h2>Indique amigos e fique meses sem pagar</h2>
-      <p>Cada amigo que contratar com o seu código vale <b>1 mensalidade grátis</b> para você. O seu amigo ganha <b>50% de desconto</b> na primeira mensalidade. Indicou 12 amigos? Você fica o ano inteiro sem pagar.</p>
+      <p class="sobretitulo">Clube de indicação</p>
+      <h2>Indique amigos e pague cada vez menos</h2>
+      <p>Cada amigo que contratar com o seu código vale <b>1 mensalidade grátis</b> para você, e o seu amigo ganha <b>50% de desconto</b> na primeira. Quanto mais amigos ativos, maior o seu nível no clube, até a <b>mensalidade grátis</b>.</p>
     </div>
     <ol class="indique-passos">
       <li><span><b>Pegue o seu código</b> no portal do cliente</span></li>
       <li><span><b>Mande para os amigos</b> pelo WhatsApp</span></li>
       <li><span><b>Ganhe 1 mês grátis</b> quando o amigo pagar as 2 primeiras mensalidades</span></li>
     </ol>
+    <div class="niveis clube-niveis">
+      <div class="nivel"><span class="nivel-nome">Amigo</span><b>1 mês</b><span>grátis por amigo · 1 a 2 amigos</span></div>
+      <div class="nivel"><span class="nivel-nome">Embaixador</span><b>-10%</b><span>todo mês · 3 a 5 amigos</span></div>
+      <div class="nivel"><span class="nivel-nome">Padrinho</span><b>-25%</b><span>todo mês · 6 a 49 amigos</span></div>
+      <div class="nivel topo-nivel"><span class="nivel-nome">Sócio do Clube</span><b>Grátis</b><span>mensalidade zero · 50 ou mais</span></div>
+    </div>
+    <p class="clube-nota">Conta o amigo ativo, que pagou as 2 primeiras mensalidades e segue em dia. Os descontos se somam ao mês grátis de cada nova indicação.</p>
   </div>
 </section>
 
@@ -665,7 +672,7 @@
       <button type="button" data-aba="carteirinha">Carteirinha</button>
       <button type="button" data-aba="acionar">Acionar franquia</button>
       <button type="button" data-aba="pagamentos">Pagamentos</button>
-      <button type="button" data-aba="indique">Indique e ganhe</button>
+      <button type="button" data-aba="indique">Clube de indicação</button>
       <button type="button" data-aba="documentos">Documentos</button>
       <button type="button" data-aba="dados">Meus dados</button>
     </nav>
@@ -753,7 +760,15 @@
 
     <!-- Indique -->
     <section class="p-aba" data-aba="indique" hidden>
-      <h2>Indique e ganhe</h2>
+      <h2>Clube de indicação</h2>
+      <div class="p-status clube-status" id="clubeCaixa">
+        <div>
+          <p class="p-status-rot">Seu nível no clube</p>
+          <p class="p-status-txt" id="clubeNivel"></p>
+        </div>
+        <div class="p-barra"><span id="clubeBarra"></span></div>
+        <p class="p-status-nota" id="clubeFalta"></p>
+      </div>
       <div class="p-indique">
         <p>Seu código de indicação</p>
         <div class="p-codigo"><b id="meuCodigo"></b><button type="button" class="btn btn-claro" id="copiarCodigo">Copiar</button></div>
@@ -761,16 +776,24 @@
         <p class="p-nota-claro" id="codigoMsg" role="status"></p>
       </div>
       <div class="p-cards p-cards-3">
-        <div class="p-card"><span>Amigos que contrataram</span><b id="indAmigos">0</b></div>
+        <div class="p-card"><span>Amigos ativos</span><b id="indAmigos">0</b></div>
         <div class="p-card"><span>Meses grátis ganhos</span><b id="indMeses">0</b></div>
-        <div class="p-card"><span>Você já economizou</span><b id="indEconomia">R$ 0,00</b></div>
+        <div class="p-card"><span>Sua mensalidade no clube</span><b id="indEconomia"></b></div>
       </div>
-      <button type="button" class="btn btn-contorno" id="simularIndicacao">Simular: um amigo contratou com meu código</button>
+      <div class="p-botoes">
+        <button type="button" class="btn btn-contorno" id="simularIndicacao">Simular: 1 amigo contratou</button>
+        <button type="button" class="btn btn-contorno" id="simularIndicacao10">Simular: 10 amigos</button>
+      </div>
+      <table class="p-tabela">
+        <thead><tr><th>Nível</th><th>Amigos ativos</th><th>Benefício</th></tr></thead>
+        <tbody id="clubeNiveis"></tbody>
+      </table>
       <ul class="p-regras">
         <li>Você ganha 1 mensalidade grátis para cada amigo que contratar com o seu código e pagar as 2 primeiras mensalidades em dia.</li>
         <li>O seu amigo ganha 50% de desconto na primeira mensalidade.</li>
-        <li>Limite de 12 mensalidades grátis a cada 12 meses.</li>
-        <li>O mês grátis entra automaticamente na sua próxima mensalidade.</li>
+        <li>O desconto do seu nível vale todo mês, enquanto os amigos continuarem ativos. Se um amigo cancelar, ele deixa de contar, mas o mês grátis que você já ganhou continua seu.</li>
+        <li>Limite de 12 meses grátis por indicação a cada 12 meses. O mês grátis entra automaticamente na sua próxima mensalidade.</li>
+        <li>Membros do clube participam do sorteio mensal.</li>
       </ul>
     </section>
 

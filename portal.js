@@ -2,6 +2,14 @@
 const portal = document.getElementById('portal');
 const p$ = (id) => document.getElementById(id);
 const CARENCIA_DIAS = 90;
+// Clube de indicação aprovado por Alison em 2026-10-21 (conta amigos ativos)
+const CLUBE = [
+  { nome: 'Amigo', min: 1, desc: 0, faixa: '1 a 2', beneficio: '1 mês grátis por amigo' },
+  { nome: 'Embaixador', min: 3, desc: 0.10, faixa: '3 a 5', beneficio: '10% de desconto todo mês' },
+  { nome: 'Padrinho', min: 6, desc: 0.25, faixa: '6 a 49', beneficio: '25% de desconto todo mês' },
+  { nome: 'Sócio do Clube', min: 50, desc: 1, faixa: '50 ou mais', beneficio: 'Mensalidade grátis' },
+];
+const nivelClube = (amigos) => [...CLUBE].reverse().find((n) => amigos >= n.min) || null;
 let cliente = null;
 let indicacoes = 0;
 let etapaAcionamento = 0;
@@ -65,8 +73,10 @@ function preencher() {
     ? 'Bateu o carro? Vá em "Acionar franquia".'
     : `Protegido a partir de ${dataBR(inicio)}.`;
 
+  const nivel = nivelClube(indicacoes);
+  const mensalClube = Math.round(c.mensal * (1 - (nivel ? nivel.desc : 0)) * 100) / 100;
   p$('pFranquia').textContent = brl(c.franquia);
-  p$('pMensal').textContent = brl(c.mensal);
+  p$('pMensal').textContent = brl(mensalClube);
   p$('pVence').textContent = dataBR(proximo);
 
   // Carteirinha
@@ -87,7 +97,8 @@ function preencher() {
 
   // Pagamentos
   const desconto = Math.min(indicacoes, 12);
-  p$('pgValor').textContent = desconto > 0 ? 'R$ 0,00 (mês grátis por indicação)' : brl(c.mensal);
+  p$('pgValor').textContent = mensalClube === 0 ? 'R$ 0,00 (Sócio do Clube)'
+    : desconto > 0 ? 'R$ 0,00 (mês grátis por indicação)' : brl(mensalClube);
   p$('pgVence').textContent = `vence em ${dataBR(proximo)}`;
   const lista = p$('pgLista');
   lista.replaceChildren();
@@ -110,8 +121,26 @@ function preencher() {
   p$('indicarWhats').href = `https://wa.me/?text=${encodeURIComponent(texto)}`;
   p$('indAmigos').textContent = indicacoes;
   p$('indMeses').textContent = desconto;
-  p$('indEconomia').textContent = brl(desconto * c.mensal);
+  p$('indEconomia').textContent = mensalClube === 0 ? 'Grátis' : brl(mensalClube);
   p$('pIndicCont').textContent = `${indicacoes} ${indicacoes === 1 ? 'amigo' : 'amigos'}`;
+
+  // Clube: nível, barra até o próximo nível e tabela
+  const prox = CLUBE.find((n) => n.min > indicacoes);
+  const base = nivel ? nivel.min : 0;
+  p$('clubeCaixa').dataset.nivel = nivel ? nivel.nome.split(' ')[0].toLowerCase() : 'nenhum';
+  p$('clubeNivel').textContent = nivel ? `${nivel.nome} · ${nivel.beneficio}` : 'Indique 1 amigo para entrar no clube';
+  p$('clubeBarra').style.width = prox ? `${Math.round(((indicacoes - base) / (prox.min - base)) * 100)}%` : '100%';
+  p$('clubeFalta').textContent = prox
+    ? `${prox.min - indicacoes === 1 ? 'Falta 1 amigo ativo' : `Faltam ${prox.min - indicacoes} amigos ativos`} para o nível ${prox.nome}: ${prox.beneficio.toLowerCase()}.`
+    : 'Você chegou ao topo do clube. Sua mensalidade é por nossa conta!';
+  const tabela = p$('clubeNiveis');
+  tabela.replaceChildren();
+  CLUBE.forEach((n) => {
+    const tr = document.createElement('tr');
+    if (n === nivel) tr.className = 'atual';
+    [n.nome, n.faixa, n.beneficio].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); });
+    tabela.append(tr);
+  });
 
   // Documentos e dados
   p$('docContrato').textContent = `Código ${c.codigo}, assinado em ${dataBR(new Date(c.contratadoEm))}`;
@@ -162,11 +191,18 @@ p$('pularCarencia').addEventListener('change', preencher);
 
 p$('copiarPix').addEventListener('click', () => copiar('00020126DEMONSTRACAO-SEGURO-DO-SEGURO', 'pixMsg', 'Código Pix de demonstração copiado. Na versão final, é o Pix real da empresa.'));
 p$('copiarCodigo').addEventListener('click', () => copiar(p$('meuCodigo').textContent, 'codigoMsg', 'Código copiado. Agora é só mandar para os amigos.'));
-p$('simularIndicacao').addEventListener('click', () => {
-  indicacoes += 1;
+function simularAmigos(n) {
+  const antes = nivelClube(indicacoes);
+  indicacoes += n;
   preencher();
-  p$('codigoMsg').textContent = 'Um amigo contratou e pagou as 2 primeiras mensalidades. Você ganhou 1 mês grátis.';
-});
+  const agora = nivelClube(indicacoes);
+  p$('codigoMsg').textContent = agora !== antes
+    ? `Você subiu para o nível ${agora.nome}: ${agora.beneficio.toLowerCase()}.`
+    : n === 1 ? 'Um amigo contratou e pagou as 2 primeiras mensalidades. Você ganhou 1 mês grátis.'
+      : `${n} amigos contrataram com o seu código.`;
+}
+p$('simularIndicacao').addEventListener('click', () => simularAmigos(1));
+p$('simularIndicacao10').addEventListener('click', () => simularAmigos(10));
 
 portal.querySelectorAll('[data-doc]').forEach((b) => b.addEventListener('click', () => {
   p$('docMsg').textContent = 'Na versão final, o documento abre aqui em PDF, com o código de verificação.';
